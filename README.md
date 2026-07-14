@@ -96,6 +96,22 @@ curl -X POST http://localhost:8081/compress \
 
 ---
 
+---
+
+## 🤖 Open WebUI との連携方法
+
+本リポジトリに含まれる `openwebui_filter.py` を使用することで、Open WebUI 上での会話や MCP ツールの応答を自動的に圧縮できます。
+
+### 設定手順
+1. Open WebUI に管理者（Admin）アカウントでログインします。
+2. **「管理者設定」 ＞ 「関数（Functions）」** を開きます。
+3. 右上の「＋（プラス）」ボタンを押し、新しい関数を作成します。
+4. 本リポジトリの `openwebui_filter.py` のコードを丸ごとコピー＆ペーストして保存します。
+5. 作成したフィルターのトグルスイッチを **「有効（Enabled）」** にします。
+6. 必要に応じて、Valves 設定から `api_url` や `compression_rate` を調整してください。
+
+---
+
 ## 📄 ライセンス
 [MIT License](LICENSE)
 
