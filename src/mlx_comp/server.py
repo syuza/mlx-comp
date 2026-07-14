@@ -1,6 +1,11 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+# 以下のインポート文が抜けていたため、追加します 👈
+from llmlingua import PromptCompressor
+
+# --- 1. FastAPI (LLMLingua-2 サーバー部) ---
+app = FastAPI()
 
 # --- 1. FastAPI (LLMLingua-2 サーバー部) ---
 app = FastAPI()
@@ -47,7 +52,7 @@ async def compress(payload: CompressRequest):
         print(f"[エラー] {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-def run_server():
-    # Open WebUIからの通信を受け付けるため 0.0.0.0 で起動
-    uvicorn.run(app, host="0.0.0.0", port=8081, log_level="info")
+def run_server(host: str, port: int):
+    print(f"FastAPI サーバーを起動します: http://{host}:{port}")
+        uvicorn.run(app, host=host, port=port, log_level="info")
 

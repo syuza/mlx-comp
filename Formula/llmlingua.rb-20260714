@@ -1,11 +1,13 @@
 class Llmlingua < Formula
   desc "LLMLingua-2 FastAPI server with macOS Menu Bar app"
-  homepage "https://github.com/yourusername/llmlingua" # あなたのGitHub URLに書き換えてください
+  #homepage "https://github.com/yourusername/llmlingua" # あなたのGitHub URLに書き換えてください
+  #homepage "" # あなたのGitHub URLに書き換えてください
   version "0.1.0"
 
   # GitHubのリリースから取得する場合の設定例
-  url "https://github.com/yourusername/llmlingua/archive/refs/tags/v#{version}.tar.gz"
-  sha256 "fef5b0c918488ccb141807c135191bb4df4bbfed75ae9d2ee3486afe36a95877" # shasum -a 256 で取得した値を入力
+  # url "https://github.com/syuza/llmlingua/archive/refs/tags/v#{version}.tar.gz"
+  url "file:///Users/syuza/Developer/genAI/llmlingua"
+  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   license "MIT"
 
   depends_on "python@3.11"
