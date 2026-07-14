@@ -1,14 +1,14 @@
 class MlxComp < Formula
   desc "LLMLingua-2 FastAPI server with macOS Menu Bar app"
   version "0.1.0"
+  license "MIT"
 
   # 本番環境
-  #url "https://github.com/syuza/llmlingua/archive/refs/tags/v0.1.0.tar.gz"
-  #sha256 "8b4028b8de36742bca2fb63ee82aa3c653645dd3f4c4e65e6ce6b579f5acd289"
+  url "https://github.com/syuza/mlx-comp/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "23479a92dd1208af47685475a3796089d3dd08f57110e6e264340e82513355f7"
 
   # 開発環境
-  url "file:///Users/syuza/Developer/genAI/mlx-comp"
-  license "MIT"
+  #url "file:///Users/syuza/Developer/genAI/mlx-comp"
 
   depends_on "python@3.11"
 
@@ -17,7 +17,7 @@ class MlxComp < Formula
 
   def install
     # 🌟 追加：手元の開発フォルダの中身を、Homebrewのビルド環境へ強制的に直接コピーする
-    cp_r Dir["/Users/syuza/Developer/genAI/mlx-comp/*"], buildpath
+    #cp_r Dir["/Users/syuza/Developer/genAI/mlx-comp/*"], buildpath
 
     # 1. 依存ライブラリのバイナリ破損を防ぐための環境変数
     ENV["LDFLAGS"] = "-Wl,-headerpad_max_install_names"
