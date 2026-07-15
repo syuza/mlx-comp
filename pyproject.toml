@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mlx-comp"
-version = "0.1.0"
+version = "0.1.1"
 description = "LLMLingua-2 FastAPI server with macOS Menu Bar app"
 dependencies = [
     "fastapi",
