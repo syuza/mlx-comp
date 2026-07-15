@@ -2,13 +2,8 @@ class MlxComp < Formula
   desc "LLMLingua-2 FastAPI server with macOS Menu Bar app"
   version "0.1.0"
   license "MIT"
-
-  # 本番環境
   url "https://github.com/syuza/mlx-comp/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "23479a92dd1208af47685475a3796089d3dd08f57110e6e264340e82513355f7"
-
-  # 開発環境
-  #url "file:///Users/syuza/Developer/genAI/mlx-comp"
 
   depends_on "python@3.11"
 
@@ -16,9 +11,6 @@ class MlxComp < Formula
   include Language::Python::Virtualenv
 
   def install
-    # 🌟 追加：手元の開発フォルダの中身を、Homebrewのビルド環境へ強制的に直接コピーする
-    #cp_r Dir["/Users/syuza/Developer/genAI/mlx-comp/*"], buildpath
-
     # 1. 依存ライブラリのバイナリ破損を防ぐための環境変数
     ENV["LDFLAGS"] = "-Wl,-headerpad_max_install_names"
     ENV["RUSTFLAGS"] = "-C link-arg=-Wl,-headerpad_max_install_names"
@@ -43,7 +35,6 @@ class MlxComp < Formula
     # 7. 実行用のラッパースクリプトを作成して bin へ配置
     # (bin オブジェクトのメソッドとして正しく呼び出します)
     bin.write_env_script libexec/"bin/python", {}
-
   end
 
   def caveats
@@ -59,15 +50,16 @@ class MlxComp < Formula
         brew services stop mlx-comp # Stop background server
 
       Logs:
+        tail -f #{var}/log/mlx-comp.log
         tail -f #{var}/log/mlx-comp.err  # View error logs
     EOS
   end
 
   service do
-    run ["#{libexec}/bin/python", "-m", "mlx_comp.main", "--server"]
+    run ["#{libexec}/bin/python", "-m", "mlx_comp.main"]
     keep_alive true
     log_path var/"log/mlx-comp.log"
-    error_log_path var/"log/mlx-comp.err" # error_log から error_log_path に修正（API仕様準拠）
+    error_log_path var/"log/mlx-comp.err"
   end
 end
 
