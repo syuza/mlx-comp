@@ -1,4 +1,6 @@
 import uvicorn
+import gc
+import torch
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from llmlingua import PromptCompressor
@@ -41,6 +43,11 @@ async def compress(payload: CompressRequest):
         # LLMLingua-2による高速圧縮処理
         results = compressor.compress_prompt(payload.text, rate=payload.rate)
         compressed = results["compressed_prompt"]
+
+        # メモリ解放処理
+        gc.collect() 
+        if torch.backends.mps.is_available():
+            torch.mps.empty_cache()
 
         print(f"[成功] 圧縮完了! -> 圧縮後の文字数: {len(compressed)}")
         return {"compressed_text": compressed}
