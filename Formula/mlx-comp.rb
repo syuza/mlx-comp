@@ -3,7 +3,7 @@ class MlxComp < Formula
   version "0.1.2"
   license "MIT"
   url "https://github.com/syuza/mlx-comp/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "fdec6735895af273b7164f5fed4357f22bb5decd43361828e383e928fde1db54"
+  sha256 "6c2f4c8ea74b22fd00cf8e3e51fee8015590b2359e93375e88fc87df16101baa"
 
   depends_on "python@3.11"
 
