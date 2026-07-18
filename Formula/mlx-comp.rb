@@ -1,8 +1,8 @@
 class MlxComp < Formula
   desc "LLMLingua-2 FastAPI server with macOS Menu Bar app"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
-  url "https://github.com/syuza/mlx-comp/archive/refs/tags/v0.1.1.tar.gz"
+  url "https://github.com/syuza/mlx-comp/archive/refs/tags/v0.1.2.tar.gz"
   sha256 "fdec6735895af273b7164f5fed4357f22bb5decd43361828e383e928fde1db54"
 
   depends_on "python@3.11"
